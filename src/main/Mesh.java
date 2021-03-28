@@ -1,7 +1,6 @@
 package main;
 
 import java.awt.*;
-import java.text.DecimalFormat;
 
 public class Mesh {
 
@@ -42,12 +41,13 @@ public class Mesh {
     public boolean inFunc(float x, float y) {
         x -= width/2.;
         y -= height/2.;
-        x /= 200;
-        y /= 200;
+//        x /= 50;
+//        y /= 50;
         y = -y;
 //        return x * x + y * y < 300 * 200 && 2*Math.abs(y)-x>0 && (x-50)*(x-50)+(y+150)*(y+150)>300; // pac man
-//        return x*x*Math.sin(0.0001*x*x)-y*y < 0; // weird sin
-        return Math.pow(x*x+y*y-1,3)-x*x*y*y*y<0; // heart
+        return x*x*Math.sin(0.0001*x*x)-y*y < 0; // weird sin
+//        return Math.pow(x*x+y*y-1,3)-x*x*y*y*y<0; // heart
+//        return x*x+y*y<4*4;
     }
 
     public void calculateMesh() {
@@ -70,7 +70,8 @@ public class Mesh {
 
     public void paint(Graphics graphics) {
         Graphics2D g = (Graphics2D) graphics;
-        g.setStroke(new BasicStroke(1));
+        g.setStroke(new BasicStroke(2));
+//        g.drawOval(width/2-8*25, height/2-8*25, 16*25, 16*25);
         for (int item : x) {
             for (int value : y) {
                 if (inFunc(item, value)) {

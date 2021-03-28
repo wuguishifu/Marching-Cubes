@@ -7,7 +7,7 @@ public class Main {
 
     static float radius = 5;
 
-    static int width = 800, height = 600;
+    static int width = 1600, height = 1200;
 
     static Mesh mesh = new Mesh(width, height);
 
